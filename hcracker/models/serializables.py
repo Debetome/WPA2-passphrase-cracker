@@ -1,5 +1,7 @@
 from dataclasses import dataclass, field
-from typing import Union, Dict, Any
+from typing import Dict, Any
+
+from hcracker.enums import Eapol
 
 @dataclass
 class Iteration:
@@ -18,5 +20,5 @@ class Target:
 @dataclass
 class Attack:
     iterations: Dict[str, Iteration] = field(default_factory=dict)
-    eapols: Dict[str, bytes] = field(default_factory=dict)  # Here will be saved eapol messages 1 and 2 as bytes
+    eapols: Dict[Eapol, bytes] = field(default_factory=dict)  # Here will be saved eapol messages 1 and 2 as bytes
     target: Target = None

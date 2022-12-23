@@ -19,7 +19,7 @@ def main(args) -> None:
     attack.set_eapols(eapols={Eapol.EAPOL1: args.eapol1, Eapol.EAPOL2: args.eapol2})
     attack.set_target()
 
-    crack = HandshakeCracker(attack)
+    crack = PassphraseCracker(attack)
 
     try:
         crack.run()
